@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class Matrice {
     private int values[] = new int[9];
-    private int nbSommets;
-    private int nbAretes;
 
     public Matrice(int[] values) {
         this.values = values;
@@ -19,24 +17,8 @@ public class Matrice {
         this.values = values;
     }
 
-    public int getNbSommets() {
-        return nbSommets;
-    }
-
-    public void setNbSommets(int nbSommets) {
-        this.nbSommets = nbSommets;
-    }
-
-    public int getNbAretes() {
-        return nbAretes;
-    }
-
-    public void setNbAretes(int nbAretes) {
-        this.nbAretes = nbAretes;
-    }
-
     public static void main(String[] args)  {
-        int[] tab = {1,2,3,5,4,7,6,9,8};
+        /*int[] tab = {1,2,3,5,4,7,6,9,8};
         Matrice matrice = new Matrice(tab);
         System.out.println();
         System.out.println("voisins : ");
@@ -49,7 +31,7 @@ public class Matrice {
                 System.out.print(array[i]);
             }
             System.out.println("");
-        }
+        }*/
     }
 
     /**
@@ -177,12 +159,12 @@ public class Matrice {
      * renvoi les voisins du sommet
      * @return
      */
-    public ArrayList<int[]> getVoisins(){
-        ArrayList<int[]> list = new ArrayList<int[]>();
+    public ArrayList<Matrice> getVoisins(){
+        ArrayList<Matrice> list = new ArrayList<>();
         int[] newMatrice = new int[8];
-        for(int i = 0 ; i < 8 ; i++){
-            list.add(rotation(i,0));
-            list.add(rotation(i,1));
+        for(int i = 0 ; i < 4 ; i++){
+            list.add(new Matrice(rotation(i,0)));
+            list.add(new Matrice(rotation(i,1)));
         }
         return list;
     }
